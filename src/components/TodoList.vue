@@ -1,11 +1,36 @@
 <template>
-    <div>
-        <h1>Hello from todo list template</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p class="display-3">Vue crash course</p>
+            </div>
+        </div>
+        <div class="row">
+            <p>Add create form</p>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <ul class="list-group">
+                    <Todo
+                        v-for="(todo,index) in todos"
+                        :key="index"
+                        :todoString="todo.todoString"
+                        :completed="todo.completed"
+                    />
+                </ul>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+import Todo from './Todo';
+
 export default {
+    components: {
+        Todo
+    },
+
     data() {
         return {
             todos: [
